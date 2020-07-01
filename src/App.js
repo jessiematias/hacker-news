@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NewStories from './containers/NewStories';
+import GlobalStyles from './styles/GlobalStyles';
+import { Topbar } from './components/Topbar';
+import {
+  Switch,
+  Route
+} from "react-router-dom";
+import JobStories from './containers/JobStories';
+import TopStories from './containers/TopStories';
+import ScrollArrow from './components/ScrollArrow';
+import ShowStories from './containers/ShowStories';
+import { ThemeProvider } from 'styled-components';
+import { useTheme } from './hooks/useTheme';
+import { lightTheme, darkTheme } from './styles/theme'
+import BurgerMenu from './components/BurgerMenu';
 
-function App() {
+const App = () => {
+  const [ theme, toggleTheme ] = useTheme()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <Topbar theme={theme} toggleTheme={toggleTheme} />
+        <BurgerMenu/>
+        <Switch>
+          <Route exact path='/' component={NewStories} />
+          <Route path='/jobs' component={JobStories} />
+          <Route path='/top' component={TopStories} />
+          <Route path='/show' component={ShowStories} />
+        </Switch>
+        <ScrollArrow />
+      </ThemeProvider>
+    </>
+  )
 }
 
-export default App;
+export default App
