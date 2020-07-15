@@ -9,7 +9,12 @@ const JobStories = () => {
     let infiniteScroll = useInfiniteScroll()
 
     useEffect(() => {
-        getJobStoryIds().then(data => setStoryIds(data))
+        const abortController = new AbortController()
+        const signal = abortController.signal
+        getJobStoryIds({ signal: signal }).then(data => setStoryIds(data))
+        return function cleanup() {
+            abortController.abort()
+          }
     }, [])
 
     return storyIds.length ? storyIds.slice(0, infiniteScroll).map(storyId => <JobStory key={storyId} storyId={storyId} /> ) : <Spinner />

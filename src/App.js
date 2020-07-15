@@ -14,6 +14,7 @@ import { ThemeProvider } from 'styled-components';
 import { useTheme } from './hooks/useTheme';
 import { lightTheme, darkTheme } from './styles/theme'
 import BurgerMenu from './components/BurgerMenu';
+import SearchResults from './containers/SearchResults';
 
 const App = () => {
   const [ theme, toggleTheme ] = useTheme()
@@ -28,6 +29,7 @@ const App = () => {
           <Route path='/jobs' component={JobStories} />
           <Route path='/top' component={TopStories} />
           <Route path='/show' component={ShowStories} />
+          <Route exact path='/search' component={SearchResults} />
         </Switch>
         <ScrollArrow />
       </ThemeProvider>

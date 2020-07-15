@@ -13,6 +13,7 @@ export const Topbar = ({ theme, toggleTheme }) => {
         <NavItem to='/top'>TRENDING</NavItem>
         <NavItem to='/show'>SHOW</NavItem>
         <NavItem to='/jobs'>JOBS</NavItem>
+        <NavItem to='/search'>SEARCH</NavItem>
         <Toggle theme={theme} toggleTheme={toggleTheme} />
       </NavItemContainer>
     </TopbarContainer>

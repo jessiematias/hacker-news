@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { StyledMenu } from '../styles/MenuSyles';
-import Toggle from './Toggle';
 
 const Menu = ({open, setOpen}) => {
   return (
@@ -17,6 +16,9 @@ const Menu = ({open, setOpen}) => {
         </Link>
       <Link onClick={() => setOpen(!open)} to="/jobs">
         JOBS
+        </Link>
+        <Link onClick={() => setOpen(!open)} to="/search">
+        SEARCH
         </Link>
     </StyledMenu>
   )

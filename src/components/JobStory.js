@@ -11,7 +11,7 @@ const JobStory = ({ storyId }) => {
     const [story, setStory] = useState({})
     useEffect(() => {
         getStory(storyId).then(data => data && data.url && setStory(data))
-    }, [])
+    }, [storyId])
 
     return story && story.url ? (
         <StoriesContainer>
