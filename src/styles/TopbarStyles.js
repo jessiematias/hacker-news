@@ -14,6 +14,7 @@ h1 {
     color: #ffff;
 
 }
+
 span {
     display: inline-block;
     vertical-align: center;
@@ -32,7 +33,7 @@ export const NavItemContainer = styled.div`
     align-items: center;
     justify-content: space-around;
     font-size: 1.3rem;
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
     display: none;
   }
 `

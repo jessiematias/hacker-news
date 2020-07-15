@@ -15,7 +15,7 @@ export const StyledBurger = styled.button`
   padding: 0;
   z-index: 10;
 
-  @media (min-width: 768px) {
+  @media (min-width: 800px) {
     visibility: hidden;
   }
 

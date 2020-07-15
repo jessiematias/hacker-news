@@ -14,11 +14,8 @@ export const StyledMenu = styled.nav`
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
-  
-  @media (max-width: 600px) {
     width: 100%;
-  }
-
+  
   a {
     font-size: 2rem;
     text-transform: uppercase;
